@@ -14,7 +14,7 @@ double_buffer no
 background no
 
 ## Update interval in seconds
-update_interval 10.0
+update_interval 20.0
 
 ## This is the number of times Conky will update before quitting.
 ## Set to zero to run forever.
@@ -65,12 +65,12 @@ ${diskio_read}-${diskio_write}        \
 # 内存消耗排行
 [ ${top_mem name 1}${top_mem name 2}]                               \
 ${uptime}         \
-vk@${addrs wlp4s0}  |  \
+${addrs wlp4s0}  |  \
 p: ${processes}  |  \
 # CPU stats
-CPU: ${freq}MHz ${cpu cpu}% ${acpitemp}°C  |  \
-RAM: ${mem} ${memperc}%  |  \
-Battery: ${battery_percent BAT1}% ${battery_time BAT1} ! ${battery_percent BAT0}%  |  \
+CPU: ${freq}MHz  ${cpu cpu0}%  ${acpitemp}°C  |  \
+RAM: ${mem}  ${memperc}%  |  \
+Battery: ${battery_percent BAT1}%  ${battery_time BAT1} ! ${battery_percent BAT0}%  |  \
 ${mixer}%  |  \
 ${time %y.%m.%d} ${time %H:%M} 
 
