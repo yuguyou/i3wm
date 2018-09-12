@@ -14,7 +14,7 @@ double_buffer no
 background no
 
 ## Update interval in seconds
-update_interval 20.0
+update_interval 5.0
 
 ## This is the number of times Conky will update before quitting.
 ## Set to zero to run forever.
@@ -70,8 +70,5 @@ p: ${processes}  |  \
 # CPU stats
 CPU: ${freq}MHz  ${cpu cpu0}%  ${acpitemp}°C  |  \
 RAM: ${mem}  ${memperc}%  |  \
-Battery: ${battery_percent BAT1}%  ${battery_time BAT1} ! ${battery_percent BAT0}%  |  \
-${mixer}%  |  \
-${time %y.%m.%d} ${time %H:%M} 
-
-
+Battery:  ${battery_percent BAT1}%  ${battery_time BAT1} ! ${battery_percent BAT0}%  ${battery_time BAT0} |  \
+${time %y.%m.%d} ${time %H:%M}
