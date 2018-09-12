@@ -9,6 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+##########################################################################
+# 打开系统设置命令： env XDG_CURRENT_DESKTOP=GNOME gnome-control-center  #
+##########################################################################
+
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
