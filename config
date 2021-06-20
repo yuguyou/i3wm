@@ -12,7 +12,7 @@
 ##########################################################################
 # 打开系统设置命令： env XDG_CURRENT_DESKTOP=GNOME gnome-control-center  #
 ##########################################################################
-# Alt: Mod1，windows: Mod4
+# Mod1: alt键， Mod4：window键
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -48,7 +48,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -132,7 +132,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 
 # lock for i3lock
-bindsym $mod+Shift+l exec "i3lock -c '#000000'"
+bindsym $mod+Shift+l exec "i3lock -c '#060606'"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -169,11 +169,17 @@ bindsym $mod+r mode "resize"
 
 
 # 启动 fcitx 输入法
-# exec --no-startup-id LANG="zh_CN.UTF-8" fcitx
+exec --no-startup-id LANG="zh_CN.UTF-8" fcitx
+
+# 启动网络管理图标
+exec --no-startup-id nm-applet
 
 # Startups #
-exec --no-startup-id ibus-daemon
+# exec --no-startup-id ibus-daemon
+# 音量控制图标
 exec --no-startup-id volumeicon
+# 电源显示图标
+exec --no-startup-id xfce4-power-manager
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # 触摸板设置
@@ -187,16 +193,12 @@ client.urgent #FF0000 #FF0000 #FF0000
 
 # 状态栏配置
 bar {
-	workspace_buttons yes
-	position top
-	binding_mode_indicator yes
-  status_command conky -c ~/.conkyrc
+  status_command i3status
+  workspace_buttons yes
+  position top
+  binding_mode_indicator yes
+  status_command /home/vk/.config/i3status/net-speed.sh
   colors {
-    background #555555
-    statusline #ffffff
-    focused_workspace  #4c7899 #285577 #ffffff
-    active_workspace   #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2f343a #900000 #ffffff
+    background #111111
   }
 }
